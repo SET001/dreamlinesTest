@@ -18,7 +18,7 @@ npm install
 path | method | response
 -----|--------|---------
 /api/all/stats | GET | Returns a list of review statistics per airport. Each item consists of the fields airportName and reviewCount
-/api/:airport_name/reviews | GET | Returns a list of reviews for the given airport, ordered by date . The latest review is returned as the first element. Each list item contains the following fields: date<br>`overallRating`<br>`recommended` (flag)<br>`authorCountry`<br>`content`
+/api/:airport_name/reviews | GET | Returns a list of reviews for the given airport, ordered by date . The latest review is returned as the first element. Each list item contains the following fields: 1. `date`<br>2.`overallRating`<br>3.`recommended` (flag)<br>4.`authorCountry`<br>5.`content`
 /api/:airport_name/stats | GET | Returns detailed stats for a given airport including the following fields: <br> airportName <br>reviewCount<br>averageOverallRating<br>recommendationCount (number of reviews with recommended == 1 )
 /api/import/csv | POST | Import data from CSV file to database (Doubles are ignored). Use `content-type: form-data` and put yopur file in `file` param.
 
