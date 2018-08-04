@@ -11,5 +11,5 @@ mongoose.connection.on('error', (error) => {
 });
 
 mongoose.connection.on('connected', () => {
-  console.error(`connect to database: ${mongoConf}`);
+  console.log(`connected to database: ${mongoConf}`);
 });

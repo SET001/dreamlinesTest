@@ -31,6 +31,11 @@ app.post('/import/csv', upload.single('file'), async (req, res, next)=>{
   res.json('ok')
 })
 
+app.post('/flush', async (req, res, next)=>{
+  const data = await Review.remove()
+  res.json('ok')
+})
+
 app.use(aiports)
 
 module.exports = app
