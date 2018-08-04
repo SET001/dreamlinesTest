@@ -2,6 +2,8 @@ const Review = require('../models/review')
 const {map, pick} = require('ramda')
 
 const stats = async (req, res)=>{
+  const {threshold} = req.query || 0
+  console.log(threshold)
   const reviews = await Review.find({airport_name: req.params.airport_name})
   res.json({
     airportName: req.params.airport_name,
