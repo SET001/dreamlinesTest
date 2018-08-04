@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const ReviewSchema = new mongoose.Schema({
-	airport_name: String,
-	link: String,
+  airport_name: String,
+  link: String,
   title: String,
   author: String,
   author_country: String,
