@@ -18,7 +18,7 @@ npm install
 path | method | response
 -----|--------|---------
 /api/all/stats | GET | Returns a list of review statistics per airport. Each item consists of the fields airportName and reviewCount
-/api/:airport_name/reviews | GET | Returns a list of reviews for the given airport, ordered by date . The latest review is returned as the first element. Each list item contains the following fields:<br> 1. `date`<br>2.`overallRating`<br>3.`recommended` (flag)<br>4.`authorCountry`<br>5.`content`
+/api/:airport_name/reviews | GET | Returns a list of reviews for the given airport, ordered by date . The latest review is returned as the first element. Each list item contains the following fields:<br> 1. `date`<br>2.`overallRating`<br>3.`recommended` (flag)<br>4.`authorCountry`<br>5.`content`<br> you can pass `threshold` param to show only reviews that exceed a given overall rating threshold for a given airport
 /api/:airport_name/stats | GET | Returns detailed stats for a given airport including the following fields: <br>1. `airportName` <br>2. `reviewCount`<br>3. `averageOverallRating`<br>4. `recommendationCount` (number of reviews with recommended == 1 )
 /api/import/csv | POST | Import data from CSV file to database (Doubles are ignored). Use `content-type: form-data` and put yopur file in `file` param.
 /api/flush | POST | will remove all reviews (I added this for testing purposes only. Real application most likely should not have this)
