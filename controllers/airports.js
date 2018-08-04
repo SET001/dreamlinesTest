@@ -1,9 +1,7 @@
 const Review = require('../models/review')
-const {map, pick} = require('ramda')
+const {map, pick, propOr} = require('ramda')
 
 const stats = async (req, res)=>{
-  const {threshold} = req.query || 0
-  console.log(threshold)
   const reviews = await Review.find({airport_name: req.params.airport_name})
   res.json({
     airportName: req.params.airport_name,
@@ -13,7 +11,11 @@ const stats = async (req, res)=>{
   })
 }
 const reviews = async (req, res)=>{
-  const reviews = await Review.find({airport_name: req.params.airport_name})
+  const threshold = propOr(0, 'threshold', req.query)
+  const reviews = await Review.find({
+    airport_name: req.params.airport_name,
+    overall_rating: {$gte: threshold}
+  })
   res.json(map(pick(['date', 'overall_rating', 'recommended', 'author_country', 'content']), reviews))
 }
 
