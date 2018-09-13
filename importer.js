@@ -16,10 +16,8 @@ module.exports = csv =>	new Promise((resolve, reject)=>
 			const obj = zipObj(headers, data)
 			if (obj.date_visit){
 				const [date, month, year] = obj.date_visit.split('-')
-				console.log(year, month, date)
 				const newDate = new Date(year,month, date)
 				obj.date_visit = newDate
-				
 			}
 			return obj
 		}, output))
