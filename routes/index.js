@@ -26,9 +26,13 @@ app.get('/all/stats', async(req, res)=>{
 })
 
 app.post('/import/csv', upload.single('file'), async (req, res, next)=>{
-  const data = await importer(req.file.buffer.toString())
-  await Review.insertMany(data)
-  res.json('ok')
+  if (req.file){
+    const data = await importer(req.file.buffer.toString())
+    await Review.insertMany(data)
+    res.json('ok')
+  } else {
+    res.json('NO FILE SELECTED')
+  }
 })
 
 app.post('/flush', async (req, res, next)=>{

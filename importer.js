@@ -12,6 +12,16 @@ const config = {
 module.exports = csv =>	new Promise((resolve, reject)=>
 	parse(csv, config, (err, output)=>{
 		const headers = output.shift()
-		resolve(map(data=> zipObj(headers, data), output))
+		resolve(map(data=> {
+			const obj = zipObj(headers, data)
+			if (obj.date_visit){
+				const [date, month, year] = obj.date_visit.split('-')
+				console.log(year, month, date)
+				const newDate = new Date(year,month, date)
+				obj.date_visit = newDate
+				
+			}
+			return obj
+		}, output))
 	})
 )

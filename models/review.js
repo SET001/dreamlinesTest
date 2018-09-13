@@ -9,7 +9,7 @@ const ReviewSchema = new mongoose.Schema({
   date: Date,
   content: String,
   experience_airport: String,
-  date_visit: String,	//	should be date, actually
+  date_visit: Date,
   type_traveller: String,
   overall_rating: Number,
   queuing_rating: Number,

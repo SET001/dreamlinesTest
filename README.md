@@ -29,3 +29,4 @@ path | method | response
 3. add logger (winston)
 4. tests
 5. restrict access fo import/flush APIs
+6. params validation
