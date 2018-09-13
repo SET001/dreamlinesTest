@@ -23,6 +23,9 @@ path | method | response
 /api/import/csv | POST | Import data from CSV file to database (Doubles are ignored). Use `content-type: form-data` and put yopur file in `file` param.
 /api/flush | POST | will remove all reviews (I added this for testing purposes only. Real application most likely should not have this)
 
+Example instance of this app available at 176.107.176.108:8081
+Postman collection to play with this: https://www.getpostman.com/collections/41d45c7336935d297bf1
+
 ## TODO
 1. solve problem with doubles during import
 2. add eslint
